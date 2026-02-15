@@ -4,6 +4,8 @@
  Chapter 1: Dasar Python
  Laboratorium Python & Dasar AI
  Universitas Muhammadiyah Makassar
+ Nama: MUH NUR SANDI
+ NIM : 105841106721
 ==========================================================
 
  Instruksi:
@@ -13,86 +15,62 @@
  3. Gunakan konstanta PI = 3.14159 untuk lingkaran
  4. Tampilkan hasil dalam format tabel yang rapi
  5. Gunakan operator assignment (+=) untuk menghitung total luas
-
- Contoh Output:
- ============ LUAS & KELILING BANGUN DATAR ============
- Bangun            |    Luas   |  Keliling
- --------------------------------------------------
- Persegi           |     25.00 |     20.00
- Persegi Panjang   |     40.00 |     26.00
- Lingkaran         |     78.54 |     31.42
- Segitiga          |     24.00 |     24.00
- --------------------------------------------------
- Total Luas        |    167.54
- ======================================================
 ==========================================================
 """
 
-# ── Konstanta ─────────────────────────────────────────────────────────────────
+# -- Konstanta -----------------------------------------------------------------
 PI = 3.14159
 
-# ── Dimensi Bangun Datar ─────────────────────────────────────────────────────
-# TODO: Deklarasikan variabel dimensi untuk setiap bangun
+# -- Dimensi Bangun Datar -----------------------------------------------------
 
 # Persegi
-sisi_persegi = ...
+sisi_persegi = 5
 
 # Persegi Panjang
-panjang = ...
-lebar = ...
+panjang = 10
+lebar = 4
 
 # Lingkaran
-jari_jari = ...
+jari_jari = 5
 
 # Segitiga (sisi a, b, c dan tinggi)
-sisi_a = ...
-sisi_b = ...
-sisi_c = ...
-tinggi_segitiga = ...
-alas_segitiga = ...
+sisi_a = 6
+sisi_b = 8
+sisi_c = 10
+tinggi_segitiga = 4.8
+alas_segitiga = 10
 
 
-# ── Perhitungan Luas ─────────────────────────────────────────────────────────
-# TODO: Hitung luas masing-masing bangun datar
-# Rumus:
-#   Persegi         : sisi * sisi
-#   Persegi Panjang : panjang * lebar
-#   Lingkaran       : PI * jari_jari ** 2
-#   Segitiga        : 0.5 * alas * tinggi
-
-luas_persegi = ...
-luas_persegi_panjang = ...
-luas_lingkaran = ...
-luas_segitiga = ...
+# -- Perhitungan Luas ----------------------------------------------------------
+luas_persegi = sisi_persegi * sisi_persegi
+luas_persegi_panjang = panjang * lebar
+luas_lingkaran = PI * jari_jari ** 2
+luas_segitiga = 0.5 * alas_segitiga * tinggi_segitiga
 
 
-# ── Perhitungan Keliling ─────────────────────────────────────────────────────
-# TODO: Hitung keliling masing-masing bangun datar
-# Rumus:
-#   Persegi         : 4 * sisi
-#   Persegi Panjang : 2 * (panjang + lebar)
-#   Lingkaran       : 2 * PI * jari_jari
-#   Segitiga        : sisi_a + sisi_b + sisi_c
-
-keliling_persegi = ...
-keliling_persegi_panjang = ...
-keliling_lingkaran = ...
-keliling_segitiga = ...
+# -- Perhitungan Keliling ------------------------------------------------------
+keliling_persegi = 4 * sisi_persegi
+keliling_persegi_panjang = 2 * (panjang + lebar)
+keliling_lingkaran = 2 * PI * jari_jari
+keliling_segitiga = sisi_a + sisi_b + sisi_c
 
 
-# ── Total Luas (gunakan operator +=) ─────────────────────────────────────────
-# TODO: Hitung total luas menggunakan operator +=
+# -- Total Luas (gunakan operator +=) -----------------------------------------
 total_luas = 0
-# total_luas += luas_persegi
-# total_luas += luas_persegi_panjang
-# ...
+total_luas += luas_persegi
+total_luas += luas_persegi_panjang
+total_luas += luas_lingkaran
+total_luas += luas_segitiga
 
 
-# ── Tampilkan Hasil dalam Format Tabel ───────────────────────────────────────
-# TODO: Tampilkan semua hasil dalam format tabel yang rapi
-# Contoh:
-# print("============ LUAS & KELILING BANGUN DATAR ============")
-# print(f"{'Bangun':<18}| {'Luas':>9} | {'Keliling':>9}")
-# print("-" * 50)
-# print(f"{'Persegi':<18}| {luas_persegi:>9.2f} | {keliling_persegi:>9.2f}")
-# ...
+# -- Tampilkan Hasil dalam Format Tabel ----------------------------------------
+print("============ LUAS & KELILING BANGUN DATAR ============")
+print(f"{'Bangun':<18}| {'Luas':>9} | {'Keliling':>9}")
+print("-" * 50)
+print(f"{'Persegi':<18}| {luas_persegi:>9.2f} | {keliling_persegi:>9.2f}")
+print(f"{'Persegi Panjang':<18}| {luas_persegi_panjang:>9.2f} | {keliling_persegi_panjang:>9.2f}")
+print(f"{'Lingkaran':<18}| {luas_lingkaran:>9.2f} | {keliling_lingkaran:>9.2f}")
+print(f"{'Segitiga':<18}| {luas_segitiga:>9.2f} | {keliling_segitiga:>9.2f}")
+print("-" * 50)
+print(f"{'Total Luas':<18}| {total_luas:>9.2f}")
+print("=" * 50)

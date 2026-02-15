@@ -4,6 +4,8 @@
  Chapter 1: Dasar Python
  Laboratorium Python & Dasar AI
  Universitas Muhammadiyah Makassar
+ Nama: MUH NUR SANDI
+ NIM : 105841106721
 ==========================================================
 
  Instruksi:
@@ -13,42 +15,38 @@
  3. Tampilkan tipe data dari setiap variabel menggunakan type()
  4. Gunakan isinstance() untuk memeriksa apakah NIM bertipe str
     dan semester bertipe int
-
- Contoh Output:
- ===== BIODATA MAHASISWA =====
- Nama    : Ahmad Fauzi
- NIM     : 105841100123
- Jurusan : Informatika
- Semester: 4
- IPK     : 3.75
- Aktif   : True
- =============================
- Tipe 'nama'    : <class 'str'>
- Tipe 'semester': <class 'int'>
- ...
 ==========================================================
 """
 
-# ── Deklarasi Variabel ────────────────────────────────────────────────────────
-# TODO: Deklarasikan variabel berikut dengan data Anda sendiri
-nama_lengkap = ...  # str: nama lengkap mahasiswa
-nim = ...  # str: Nomor Induk Mahasiswa
-jurusan = ...  # str: nama jurusan
-semester = ...  # int: semester saat ini
-ipk = ...  # float: Indeks Prestasi Kumulatif
-status_aktif = ...  # bool: apakah masih aktif kuliah
+# -- Deklarasi Variabel -------------------------------------------------------
+nama_lengkap = "MUH NUR SANDI"
+nim = "105841106721"
+jurusan = "Informatika"
+semester = 4
+ipk = 3.75
+status_aktif = True
 
 
-# ── Tampilkan Biodata ─────────────────────────────────────────────────────────
-# TODO: Tampilkan semua data menggunakan f-string
-# Contoh: print(f"Nama    : {nama_lengkap}")
+# -- Tampilkan Biodata --------------------------------------------------------
+print("===== BIODATA MAHASISWA =====")
+print(f"Nama    : {nama_lengkap}")
+print(f"NIM     : {nim}")
+print(f"Jurusan : {jurusan}")
+print(f"Semester: {semester}")
+print(f"IPK     : {ipk}")
+print(f"Aktif   : {status_aktif}")
+print("=============================")
 
 
-# ── Tampilkan Tipe Data ──────────────────────────────────────────────────────
-# TODO: Tampilkan tipe data setiap variabel menggunakan type()
-# Contoh: print(f"Tipe 'nama'    : {type(nama_lengkap)}")
+# -- Tampilkan Tipe Data ------------------------------------------------------
+print(f"Tipe 'nama'    : {type(nama_lengkap)}")
+print(f"Tipe 'nim'     : {type(nim)}")
+print(f"Tipe 'jurusan' : {type(jurusan)}")
+print(f"Tipe 'semester': {type(semester)}")
+print(f"Tipe 'ipk'     : {type(ipk)}")
+print(f"Tipe 'aktif'   : {type(status_aktif)}")
 
 
-# ── Pemeriksaan isinstance() ─────────────────────────────────────────────────
-# TODO: Gunakan isinstance() untuk memeriksa tipe data
-# Contoh: print(f"NIM adalah str? {isinstance(nim, str)}")
+# -- Pemeriksaan isinstance() -------------------------------------------------
+print(f"\nNIM adalah str?      {isinstance(nim, str)}")
+print(f"Semester adalah int? {isinstance(semester, int)}")

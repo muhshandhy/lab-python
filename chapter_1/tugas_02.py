@@ -4,6 +4,8 @@
  Chapter 1: Dasar Python
  Laboratorium Python & Dasar AI
  Universitas Muhammadiyah Makassar
+ Nama: MUH NUR SANDI
+ NIM : 105841106721
 ==========================================================
 
  Instruksi:
@@ -16,7 +18,7 @@
 ==========================================================
 """
 
-# ── Rumus Konversi ────────────────────────────────────────────────────────────
+# -- Rumus Konversi ------------------------------------------------------------
 # Fahrenheit = (Celsius * 9/5) + 32
 # Reamur     = Celsius * 4/5
 # Kelvin     = Celsius + 273.15
@@ -31,17 +33,21 @@ def konversi_suhu(celsius):
     Returns:
         tuple: (fahrenheit, reamur, kelvin)
     """
-    # TODO: Hitung konversi suhu
-    fahrenheit = ...
-    reamur = ...
-    kelvin = ...
+    fahrenheit = (celsius * 9 / 5) + 32
+    reamur = celsius * 4 / 5
+    kelvin = celsius + 273.15
     return fahrenheit, reamur, kelvin
 
 
-# ── Tampilkan Hasil Konversi ─────────────────────────────────────────────────
-# TODO: Uji fungsi dengan minimal 3 nilai celsius berbeda
-# Contoh:
-#   nilai_celsius = [0, 100, 37.5]
-#   for c in nilai_celsius:
-#       f, r, k = konversi_suhu(c)
-#       print(f"{c:.2f}°C = {f:.2f}°F = {r:.2f}°R = {k:.2f}K")
+# -- Tampilkan Hasil Konversi --------------------------------------------------
+nilai_celsius = [0, 100, 37.5]
+
+print("===== KALKULATOR KONVERSI SUHU =====")
+print(f"{'Celsius':>10} | {'Fahrenheit':>12} | {'Reamur':>10} | {'Kelvin':>10}")
+print("-" * 52)
+
+for c in nilai_celsius:
+    f, r, k = konversi_suhu(c)
+    print(f"{c:>9.2f}°C | {f:>10.2f}°F | {r:>8.2f}°R | {k:>8.2f}K")
+
+print("=" * 52)

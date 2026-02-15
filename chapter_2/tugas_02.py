@@ -4,6 +4,8 @@
  Chapter 2: Struktur Data
  Laboratorium Python & Dasar AI
  Universitas Muhammadiyah Makassar
+ Nama: MUH NUR SANDI
+ NIM : 105841106721
 ==========================================================
 
  Instruksi:
@@ -14,56 +16,95 @@
  4. Cari mahasiswa dengan rata-rata tertinggi
  5. Tambahkan 1 mahasiswa baru ke dictionary
  6. Gunakan dict comprehension untuk {nama: rata_rata_nilai}
-
- Contoh Struktur:
- mahasiswa = {
-     "MHS001": {
-         "nama": "Ahmad",
-         "jurusan": "Informatika",
-         "nilai": {"Algoritma": 85, "Basis Data": 90, "Jaringan": 78}
-     },
-     ...
- }
 ==========================================================
 """
 
-# ── Data Mahasiswa ────────────────────────────────────────────────────────────
-# TODO: Buat dictionary berisi data 5 mahasiswa
+# -- Data Mahasiswa ------------------------------------------------------------
 mahasiswa = {
-    # "MHS001": {
-    #     "nama": "...",
-    #     "jurusan": "...",
-    #     "nilai": {"Mata Kuliah 1": ..., "Mata Kuliah 2": ..., "Mata Kuliah 3": ...}
-    # },
-    # ... tambahkan 4 mahasiswa lagi
+    "MHS001": {
+        "nama": "Ahmad Fauzi",
+        "jurusan": "Informatika",
+        "nilai": {"Algoritma": 85, "Basis Data": 90, "Jaringan": 78}
+    },
+    "MHS002": {
+        "nama": "Siti Nurhaliza",
+        "jurusan": "Informatika",
+        "nilai": {"Algoritma": 92, "Basis Data": 88, "Jaringan": 95}
+    },
+    "MHS003": {
+        "nama": "Budi Santoso",
+        "jurusan": "Sistem Informasi",
+        "nilai": {"Algoritma": 70, "Basis Data": 75, "Jaringan": 68}
+    },
+    "MHS004": {
+        "nama": "Dewi Lestari",
+        "jurusan": "Informatika",
+        "nilai": {"Algoritma": 88, "Basis Data": 82, "Jaringan": 90}
+    },
+    "MHS005": {
+        "nama": "Rizky Pratama",
+        "jurusan": "Sistem Informasi",
+        "nilai": {"Algoritma": 76, "Basis Data": 80, "Jaringan": 72}
+    },
 }
 
 
-# ── Tampilkan Data dalam Format Tabel ─────────────────────────────────────────
-# TODO: Tampilkan seluruh data mahasiswa dalam format tabel
-# Contoh:
-# for nim, data in mahasiswa.items():
-#     print(f"{nim} | {data['nama']:<15} | {data['jurusan']:<15} | ...")
+# -- Tampilkan Data dalam Format Tabel -----------------------------------------
+print("===== SISTEM DATA MAHASISWA =====")
+print(f"{'NIM':<8} | {'Nama':<18} | {'Jurusan':<18} | {'Algoritma':>9} | {'Basis Data':>10} | {'Jaringan':>8}")
+print("-" * 85)
+
+for nim, data in mahasiswa.items():
+    n = data["nilai"]
+    print(f"{nim:<8} | {data['nama']:<18} | {data['jurusan']:<18} | {n['Algoritma']:>9} | {n['Basis Data']:>10} | {n['Jaringan']:>8}")
+
+print("-" * 85)
 
 
-# ── Hitung Rata-rata Nilai Setiap Mahasiswa ──────────────────────────────────
-# TODO: Hitung rata-rata nilai setiap mahasiswa
-# Hint: sum(data["nilai"].values()) / len(data["nilai"])
+# -- Hitung Rata-rata Nilai Setiap Mahasiswa -----------------------------------
+print("\n===== RATA-RATA NILAI =====")
+for nim, data in mahasiswa.items():
+    rata = sum(data["nilai"].values()) / len(data["nilai"])
+    print(f"{data['nama']:<18} : {rata:.2f}")
 
 
-# ── Cari Mahasiswa dengan Rata-rata Tertinggi ────────────────────────────────
-# TODO: Cari dan tampilkan mahasiswa dengan rata-rata tertinggi
+# -- Cari Mahasiswa dengan Rata-rata Tertinggi ---------------------------------
+print("\n===== MAHASISWA TERBAIK =====")
+nim_terbaik = None
+rata_tertinggi = 0
+
+for nim, data in mahasiswa.items():
+    rata = sum(data["nilai"].values()) / len(data["nilai"])
+    if rata > rata_tertinggi:
+        rata_tertinggi = rata
+        nim_terbaik = nim
+
+data_terbaik = mahasiswa[nim_terbaik]
+print(f"Nama    : {data_terbaik['nama']}")
+print(f"NIM     : {nim_terbaik}")
+print(f"Jurusan : {data_terbaik['jurusan']}")
+print(f"Rata-rata: {rata_tertinggi:.2f}")
 
 
-# ── Tambahkan Mahasiswa Baru ─────────────────────────────────────────────────
-# TODO: Tambahkan 1 mahasiswa baru ke dictionary
-# mahasiswa["MHS006"] = { ... }
+# -- Tambahkan Mahasiswa Baru -------------------------------------------------
+mahasiswa["MHS006"] = {
+    "nama": "Andi Wijaya",
+    "jurusan": "Informatika",
+    "nilai": {"Algoritma": 80, "Basis Data": 85, "Jaringan": 82}
+}
+print(f"\n===== MAHASISWA BARU DITAMBAHKAN =====")
+print(f"NIM     : MHS006")
+print(f"Nama    : {mahasiswa['MHS006']['nama']}")
+print(f"Jurusan : {mahasiswa['MHS006']['jurusan']}")
+print(f"Nilai   : {mahasiswa['MHS006']['nilai']}")
 
 
-# ── Dictionary Comprehension ─────────────────────────────────────────────────
-# TODO: Buat dict baru {nama: rata_rata_nilai} menggunakan dict comprehension
-# Contoh:
-# ringkasan = {
-#     data["nama"]: sum(data["nilai"].values()) / len(data["nilai"])
-#     for nim, data in mahasiswa.items()
-# }
+# -- Dictionary Comprehension -------------------------------------------------
+print("\n===== RINGKASAN (Dict Comprehension) =====")
+ringkasan = {
+    data["nama"]: round(sum(data["nilai"].values()) / len(data["nilai"]), 2)
+    for nim, data in mahasiswa.items()
+}
+
+for nama, rata in ringkasan.items():
+    print(f"{nama:<18} : {rata}")
