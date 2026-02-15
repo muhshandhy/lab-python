@@ -4,16 +4,8 @@
  Chapter 3: Control Flow & Fungsi
  Laboratorium Python & Dasar AI
  Universitas Muhammadiyah Makassar
-==========================================================
-
- Instruksi:
- 1. Buat fungsi kalkulator(a, b, operasi="+") dengan default param
- 2. Tangani pembagian dengan nol
- 3. Buat fungsi statistik(*args) -> dict {min, max, sum, mean, count}
- 4. Buat fungsi format_output(**kwargs) -> cetak key: value
- 5. Demonstrasikan lambda dengan map() (kuadrat)
- 6. Demonstrasikan lambda dengan filter() (bilangan genap)
- 7. Demonstrasikan lambda dengan sorted() (sort list of tuple)
+ Nama: MUH NUR SANDI
+ NIM : 105841106721
 ==========================================================
 """
 
@@ -29,9 +21,28 @@ def kalkulator(a, b, operasi="+"):
     Returns:
         float: Hasil perhitungan, atau None jika operasi tidak valid.
     """
-    # TODO: Implementasikan kalkulator
-    # Jangan lupa tangani pembagian dengan nol!
-    ...
+    if operasi == "+":
+        return a + b
+    elif operasi == "-":
+        return a - b
+    elif operasi == "*":
+        return a * b
+    elif operasi == "/":
+        if b == 0:
+            return "Error: Pembagian dengan nol!"
+        return a / b
+    elif operasi == "//":
+        if b == 0:
+            return "Error: Pembagian dengan nol!"
+        return a // b
+    elif operasi == "%":
+        if b == 0:
+            return "Error: Pembagian dengan nol!"
+        return a % b
+    elif operasi == "**":
+        return a ** b
+    else:
+        return None
 
 
 def statistik(*args):
@@ -43,9 +54,15 @@ def statistik(*args):
     Returns:
         dict: {"min": ..., "max": ..., "sum": ..., "mean": ..., "count": ...}
     """
-    # TODO: Implementasikan menggunakan *args
-    # Hint: args adalah tuple, bisa pakai min(), max(), sum(), len()
-    ...
+    if not args:
+        return {}
+    return {
+        "min": min(args),
+        "max": max(args),
+        "sum": sum(args),
+        "mean": sum(args) / len(args),
+        "count": len(args),
+    }
 
 
 def format_output(**kwargs):
@@ -54,41 +71,36 @@ def format_output(**kwargs):
     Args:
         **kwargs: Pasangan key-value yang akan dicetak.
     """
-    # TODO: Implementasikan menggunakan **kwargs
-    # Contoh:
-    # for key, value in kwargs.items():
-    #     print(f"  {key:<15}: {value}")
-    ...
+    for key, value in kwargs.items():
+        print(f"  {key:<15}: {value}")
 
 
-# ── Demonstrasi ──────────────────────────────────────────────────────────────
+# -- Demonstrasi ---------------------------------------------------------------
 if __name__ == "__main__":
-    # TODO: Demonstrasi kalkulator
-    # print("=== Kalkulator ===")
-    # print(f"10 + 3 = {kalkulator(10, 3, '+')}")
-    # print(f"10 / 0 = {kalkulator(10, 0, '/')}")  # tangani error
+    print("=== Kalkulator ===")
+    operasi_list = ["+", "-", "*", "/", "//", "%", "**"]
+    for op in operasi_list:
+        print(f"10 {op} 3 = {kalkulator(10, 3, op)}")
+    print(f"10 / 0 = {kalkulator(10, 0, '/')}")
 
-    # TODO: Demonstrasi statistik(*args)
-    # print("\n=== Statistik ===")
-    # hasil = statistik(85, 90, 78, 92, 65, 88, 73)
-    # print(hasil)
+    print("\n=== Statistik (*args) ===")
+    hasil = statistik(85, 90, 78, 92, 65, 88, 73)
+    for key, value in hasil.items():
+        print(f"  {key:<6}: {value}")
 
-    # TODO: Demonstrasi format_output(**kwargs)
-    # print("\n=== Format Output ===")
-    # format_output(nama="Ahmad", nim="105841100123", jurusan="Informatika")
+    print("\n=== Format Output (**kwargs) ===")
+    format_output(nama="MUH NUR SANDI", nim="105841106721", jurusan="Informatika")
 
-    # TODO: Lambda + map() -> hitung kuadrat dari list
-    # angka = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    # kuadrat = list(map(lambda x: x ** 2, angka))
-    # print(f"\nKuadrat: {kuadrat}")
+    # Lambda + map() -> hitung kuadrat
+    angka = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    kuadrat = list(map(lambda x: x ** 2, angka))
+    print(f"\nLambda + map (kuadrat): {kuadrat}")
 
-    # TODO: Lambda + filter() -> saring bilangan genap
-    # genap = list(filter(lambda x: x % 2 == 0, angka))
-    # print(f"Genap  : {genap}")
+    # Lambda + filter() -> bilangan genap
+    genap = list(filter(lambda x: x % 2 == 0, angka))
+    print(f"Lambda + filter (genap): {genap}")
 
-    # TODO: Lambda + sorted() -> urutkan list of tuple
-    # mahasiswa = [("Ahmad", 85), ("Siti", 92), ("Budi", 78), ("Dewi", 90)]
-    # by_nilai = sorted(mahasiswa, key=lambda x: x[1], reverse=True)
-    # print(f"\nUrut by nilai: {by_nilai}")
-
-    pass
+    # Lambda + sorted() -> urutkan list of tuple
+    mahasiswa = [("Ahmad", 85), ("Siti", 92), ("Budi", 78), ("Dewi", 90)]
+    by_nilai = sorted(mahasiswa, key=lambda x: x[1], reverse=True)
+    print(f"Lambda + sorted (by nilai desc): {by_nilai}")
